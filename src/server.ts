@@ -2,6 +2,7 @@ import express from 'express'
 const app = express()
 
 const PORT = 3333
+app.use(express.json())
 
 // app.get('/products/', (req, res) => {
 //   res.send(`Produto`)
@@ -15,6 +16,11 @@ app.get('/products/:id/:user', (req, res) => {
 app.get('/products', (req, res) => {
   const { page, limit } = req.query
   res.send(`Pagina: ${page} de ${limit}`)
+})
+
+app.post('/products', (req, res) => {
+  const { name, price } = req.body
+  res.send(`Produto ${name} custa R$ ${price}`)
 })
 
 app.listen(PORT, () => {
