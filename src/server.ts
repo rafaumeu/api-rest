@@ -11,7 +11,7 @@ app.use(myMiddleware)
 //   res.send(`Produto`)
 // })
 
-app.get('/products/:id/:user', (req, res) => {
+app.get('/products/:id/:user', myMiddleware, (req, res) => {
   const { id, user } = req.params
   res.send(`Produto id: ${id} do usuário ${user} `)
 })
