@@ -1,8 +1,11 @@
 import express from 'express'
+import { myMiddleware } from './middlewares/my-middleware'
 const app = express()
 
 const PORT = 3333
 app.use(express.json())
+
+app.use(myMiddleware)
 
 // app.get('/products/', (req, res) => {
 //   res.send(`Produto`)
@@ -25,6 +28,7 @@ app.post('/products', (req, res) => {
     price
   }).status(201)
 })
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} \nhttp://localhost:${PORT}/ or \nhttp://192.168.0.55:${PORT}` )
