@@ -25,7 +25,8 @@ app.post('/products', (req, res) => {
   const { name, price } = req.body
   res.json({
     name,
-    price
+    price,
+    user_id: req.user_id
   }).status(201)
 })
 
