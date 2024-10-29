@@ -20,7 +20,10 @@ app.get('/products', (req, res) => {
 
 app.post('/products', (req, res) => {
   const { name, price } = req.body
-  res.send(`Produto ${name} custa R$ ${price}`)
+  res.json({
+    name,
+    price
+  }).status(201)
 })
 
 app.listen(PORT, () => {
