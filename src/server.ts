@@ -3,8 +3,9 @@ const app = express()
 
 const PORT = 3333
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/products/:id/:user', (req, res) => {
+  const { id, user } = req.params
+  res.send(`Produto id: ${id} do usuário ${user} `)
 })
 
 app.listen(PORT, () => {
